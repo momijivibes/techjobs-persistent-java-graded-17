@@ -30,7 +30,7 @@ public class TestTaskOne extends AbstractTest{
         boolean usernameFound = usernameMatcher.find();
         assertTrue(usernameFound, "Database username not found or is incorrect");
 
-        Pattern passwordPattern = Pattern.compile("spring.datasource.password=TechJobs123$");
+        Pattern passwordPattern = Pattern.compile("spring.datasource.password=TechJobs123\\u0024");
         Matcher passwordMatcher= passwordPattern.matcher(propsFileContents);
         boolean passwordFound = passwordMatcher.find();
         assertTrue(passwordFound, "Database password not found or is incorrect");
@@ -39,6 +39,7 @@ public class TestTaskOne extends AbstractTest{
     /*
     * Check build.gradle for the required database dependencies
     * */
+
     @Test
     public void testDbGradleDependencies () throws IOException {
         String gradleFileContents = getFileContents("build.gradle");
