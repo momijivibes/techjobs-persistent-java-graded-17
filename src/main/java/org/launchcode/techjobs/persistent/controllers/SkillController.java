@@ -9,6 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @Controller
 @RequestMapping("skills")
 public class SkillController {
@@ -24,6 +26,7 @@ public class SkillController {
         model.addAttribute("skills", skillRepository.findAll());
         return "skills/index";
     }
+
 
     @GetMapping("add")
     public String displayAddSkillForm(Model model) {
